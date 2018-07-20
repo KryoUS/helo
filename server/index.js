@@ -53,7 +53,7 @@ app.post('/register', (req, res, next) => {
     db.user_check([username])
     .then(response => {
         console.log(response)
-        if (response[0].id) {
+        if (response.length != 0) {
             const alreadyExists = {exists: true}
             console.log('user already exists!')
             res.status(200).send(alreadyExists)
